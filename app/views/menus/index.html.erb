@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h2>Welcome! Check out our menu!</h2>
+
+<div class="row">
+  <% @menus.each do |menu| %>
+    <div class="col-sm-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3><%= menu.item %></h3>
+          <div class = "panel-body">
+          <p><%= image_tag menu.avatar.url(:medium), class: "img-responsive" %></p>
+          <p><%= menu.description %></p>
+          <p>$<%= menu.price %></p>
+          </div>
+          <div class="btn-footer">
+            <%= link_to "Details", menu, class: "btn btn-primary"%>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<%= link_to 'New Menu', new_menu_path %>
